@@ -12,8 +12,12 @@ router.post('/add',(req,res)=>{
 
     //save we got data in the db
     newStudent.save()
-        .then(()=>{res.json({status:"Student Added Success !!"})})
-        .catch((err)=>{res.json({status:"Student Adding Failed !!"})});
+        .then(()=>{
+            res.status(200).send({status:"Student added !"})
+        })
+        .catch((err)=>{
+            res.status(500).send({status:"Student added failed ! "})
+        })
 });
 
 
